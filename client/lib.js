@@ -2,14 +2,23 @@ var JSG =
 {
   Game:class
   {
-    constructor()
+    //set the tag which the game's canvas should be in.
+   setContainer(tag)
     {
-      this.container=null;
-      this.canvas=document.createElement("canvas");
+      tag.appendChild(canvas);
     }
-    setContainer(tag)
+    
+   //constructor(), constructor(container), constructor(height, width) or constructor(container,height,width)
+   constructor()
     {
-      
+      this.canvas=document.createElement("canvas");      
+      switch(arguments.length)
+      {
+        case 1://sent only container
+          setContainer(arguments[0])
+          break;
+      }
     }
+    
   }
 };
