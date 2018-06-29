@@ -1,0 +1,7 @@
+var JSG =
+{
+  Game:class
+  {
+    
+  }
+};
