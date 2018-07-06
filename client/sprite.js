@@ -11,9 +11,8 @@ JSG.Sprite = class
 				this.img.src = arguments[0];
 				var done = false;
 				this.img.addEventListener('load',function(){
-					done=true;
+					alert()
 				})
-				while(!done);
 			}
     }
 	set url(url)
