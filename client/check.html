@@ -6,8 +6,7 @@ var circle=null;
 var ctx=null
 function init()
 {
-	game = new JSG.Game(document.body,500,500);
-	ctx=game.ctx;
+	game = new JSG.Game(document.getElementById("canvas"),500,500);
 	circle = new JSG.Sprite("circle.bmp");
 	ball = new JSG.Entity();
 	ball.sprite = circle;
@@ -15,10 +14,15 @@ function init()
 	room.place(ball, 10,10);
 	game.addRoom(room);
 	game.start();
-	ctx.drawImage(circle.img,10,10);
+}
+function a()
+{
+	game.ctx.drawImage(circle.img,10,10);
+
 }
 </script>
 <script src=https://rawgit.com/NoamDev/JSGameLib/client-side/client/lib.js type=text/javascript></script>
 </head>
 <body>
+<div id="game"><canvas id=canvas></canvas</>
 </body>

@@ -14,19 +14,8 @@ JSG.Game = class
    constructor()
     {
 	  this.Rooms = [];
-      this.canvas=document.createElement("canvas");
+      this.canvas=arguments[0];
 	  this.ctx = this.canvas.getContext("2d");
-      switch(arguments.length)
-      {
-		case 1://sent only container.
-          this.setContainer(arguments[0])
-		  break;
-		case 2://sent only height and width.
-		  this.setDimentions(arguments[0],arguments[1]);
-		  break;
-		 case 3://sent both container and height,width
-  		  this.setDimentions(arguments[1],arguments[2]);
-		  this.setContainer(arguments[0]);
       }
     }
 	addRoom(room)
