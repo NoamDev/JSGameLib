@@ -9,10 +9,11 @@ JSG.url=document.currentScript.src;
 JSG.h={}//help fuctions
 JSG.h.loadScript=function(url, callback)
 {
+	var url="https://rawgit.com/NoamDev/JSGameLib/client-side/client/"+url;
 	// get some kind of XMLHttpRequest
 	var xhrObj = new XMLHttpRequest();
 	// open and send a synchronous request
-	xhrObj.open('GET', "script.js", false);
+	xhrObj.open('GET', url, false);
 	xhrObj.send('');
 	eval(xhrObj.responseText);
 }
