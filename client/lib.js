@@ -18,12 +18,8 @@ JSG.h.loadScript=function(url, callback)
 	eval(xhrObj.responseText);
 }
 
-JSG.h.loadScript("game.js",function(e){
-	JSG.h.loadScript("sprite.js",function(e){
-		JSG.h.loadScript("entity.js",function(e){
-			JSG.h.loadScript("room.js",function(e){
-				init();
-			})
-		})
-	})
-});
+JSG.h.loadScript("game.js");
+JSG.h.loadScript("sprite.js");
+JSG.h.loadScript("entity.js");
+JSG.h.loadScript("room.js");
+init();
