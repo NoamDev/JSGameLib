@@ -7,7 +7,14 @@ JSG.Sprite = class
 			if(arguments[0] instanceof Image)
 				this.img=arguments[0];
 			else
+			{
 				this.img.src = arguments[0];
+				var done = false;
+				this.img.addEventListner('load',function(){
+					done=true;
+				})
+				while(!done);
+			}
     }
 	set url(url)
     {
