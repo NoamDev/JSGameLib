@@ -1,30 +1,28 @@
-window.JSG=(typeof JSG !== 'undefined'?JSG:{});
+window.JSG={};
+JSG.url=document.currentScript.src;
     // extract filename and callback parameter from the URL
     (function(){
-	var matches = document.currentScript.src.match(/callback=([^&]*)(&.*|$)/);
+		var matches = JSG.url.match(/callback=([^&]*)(&.*|$)/);
         // call the callback function
         JSG.callback=((matches!=null)?matches[1]:null);
 	})();
 JSG.h={}//help fuctions
 JSG.h.loadScript=function(url, callback)
-
 {
-    // Adding the script tag to the head as suggested before
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = url;
-
-    // Then bind the event to the callback function.
-    // There are several events for cross browser compatibility.
-    script.onreadystatechange = callback;
-    script.onload = callback;
-
-    // Fire the loading
-    head.appendChild(script);
+	// get some kind of XMLHttpRequest
+	var xhrObj = new XMLHttpRequest();
+	// open and send a synchronous request
+	xhrObj.open('GET', "script.js", false);
+	xhrObj.send('');
+	eval(xhrObj.responseText);
 }
 
 JSG.h.loadScript("game.js",function(e){
-	if(JSG.callback!=null)
-		(window[JSG.callback])()
+	JSG.h.loadScript("sprite.js",function(e){
+		JSG.h.loadScript("entity.js",function(e){
+			JSG.h.loadScript("room.js",function(e){
+				init();
+			})
+		})
+	})
 });

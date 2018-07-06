@@ -1,7 +1,24 @@
-<script src=lib.js?callback=abc&jf=nvj&xn=kvb></script>
+<head>
 <script>
-function abc()
+var game=null;
+var ball=null;
+var circle=null;
+var ctx=null
+function init()
 {
-	console.log(JSG.Game);
+	game = new JSG.Game(document.body,500,500);
+	ctx=game.ctx;
+	circle = new JSG.Sprite("circle.bmp");
+	ball = new JSG.Entity();
+	ball.sprite = circle;
+	var room = new JSG.Room();
+	room.place(ball, 10,10);
+	game.addRoom(room);
+	game.start();
+	ctx.drawImage(circle.img,10,10);
 }
 </script>
+<script src=lib.js?callback=init></script>
+</head>
+<body>
+</body>
