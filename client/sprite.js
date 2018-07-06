@@ -10,7 +10,7 @@ JSG.Sprite = class
 			{
 				this.img.src = arguments[0];
 				var done = false;
-				this.img.addEventListner('load',function(){
+				this.img.addEventListener('load',function(){
 					done=true;
 				})
 				while(!done);
