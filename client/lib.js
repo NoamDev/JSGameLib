@@ -22,4 +22,4 @@ JSG.h.loadScript("game.js");
 JSG.h.loadScript("sprite.js");
 JSG.h.loadScript("entity.js");
 JSG.h.loadScript("room.js");
-init();
+window.onload="init";
