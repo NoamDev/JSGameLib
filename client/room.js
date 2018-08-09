@@ -12,6 +12,13 @@ JSG.Room = class
 		e.y = y;
 		this.entities.push(e);
 	}
+	create()
+	{
+		for(var e of this.entities)
+		{
+			e.dispatchEvent(new Event("create"))
+		}
+	}
 	paint(ctx)
 	{
 		for(var e of this.entities)
