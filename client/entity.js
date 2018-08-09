@@ -40,14 +40,13 @@ JSG.Entity = class extends ETClass
 		super();
 		this.prototype.move=function()
 		{
-			alert("moving")
+			this.setInterval(100,()=>this.x+=3)
 		}
 		this.prototype.sprite = null;
 		this.prototype.visible = true;
 		this.prototype.x = null;
 		this.prototype.y = null;
-    }
-	
+   	}
 	set sprite(sprite)
 	{
 		this.prototype.sprite = sprite;
