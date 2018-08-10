@@ -25,6 +25,7 @@
       div.id="game";
       var script=document.createElement("script");
       script.innerHTML=document.getElementById("code").innerHTML;
+      frame.contentDocument.open();
       frame.contentDocument.body.appendChild(div);
       frame.contentDocument.head.appendChild(script);
       frame.contentDocument.head.appendChild(libscript);
