@@ -24,7 +24,7 @@
       var div=document.createElement("div");
       div.id="game";
       var script=document.createElement("script");
-      script.innerHTML=document.getElementById("code").innerHTML;
+      script.innerHTML=document.getElementById("code").value;
       frame.contentDocument.open();
       frame.contentDocument.write("<!DOCTYPE html><html><head></head><body></body></html>");
       frame.contentDocument.close()
