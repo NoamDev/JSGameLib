@@ -28,7 +28,6 @@
       frame.contentDocument.open();
       frame.contentDocument.write("<!DOCTYPE html><html><head></head><body></body></html>");
       frame.contentDocument.close()
-      frame.contentWindow.location.reload();
       frame.contentDocument.body.appendChild(div);
       frame.contentDocument.head.appendChild(script);
       frame.contentDocument.head.appendChild(libscript);
