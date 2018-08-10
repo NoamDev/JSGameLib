@@ -1,1 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function run()
+    {
+      var frame=document.getElementById("frame");
+      var libscript=document.createElement("script");
+      libscript.src="lib/client/lib.js";
+      var div=document.createElement("div");
+      div.id="game";
+      var script=document.createElement("script");
+      script.innerHTML=document.getElementById("code").innerHTML;
+      frame.document.head.apppendChild(libscript);
+      frame.document.head.apppendChild(div);
+      frame.document.head.apppendChild(script);
 
+    }
+  </scripr>
+</head>
+<body>
+  <textarea id="code"></textarea>
+  <button onclick=run>run</button>
+</body>
+<iframe id="frame"></iframe>
+</html>
