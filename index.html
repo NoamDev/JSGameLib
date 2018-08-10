@@ -11,9 +11,9 @@
       div.id="game";
       var script=document.createElement("script");
       script.innerHTML=document.getElementById("code").innerHTML;
-      frame.document.head.apppendChild(libscript);
-      frame.document.head.apppendChild(div);
-      frame.document.head.apppendChild(script);
+      frame.contentDocument.head.apppendChild(libscript);
+      frame.contentDocument.head.apppendChild(div);
+      frame.contentDocument.head.apppendChild(script);
 
     }
   </script>
