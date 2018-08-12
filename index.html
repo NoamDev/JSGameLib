@@ -21,7 +21,7 @@
       var frameContainer=document.getElementById("frame");
       if(frame!=null)frameContainer.removeChild(frame);
       var frame=document.createElement("iframe");
-      //frame.src="about:blank";
+      frameContainer.appendChild(frame);
       var libscript=document.createElement("script");
       libscript.src="lib/client/lib.js";
       var div=document.createElement("div");
@@ -34,7 +34,6 @@
       frame.contentDocument.body.appendChild(div);
       frame.contentDocument.head.appendChild(script);
       frame.contentDocument.head.appendChild(libscript);
-      frameContainer.appendChild(frame);
     }
   </script> 
 </head>
