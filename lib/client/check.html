@@ -7,14 +7,15 @@ var ctx=null
 function init()
 {
 	game = new JSG.Game(document.getElementById("game"),500,500);
-	circle = new JSG.Sprite(game.image("circle.bmp"));
+	game.load("circle.bmp")
+	circle = new JSG.Sprite(game.res["circle.bmp"]);
 	ball = new JSG.Entity();
 	ball.sprite = circle;
 	ball.addEventListener("create",function(){this.move(3)})
 	var room = new JSG.Room();
 	room.place(ball, 10,10);
 	game.addRoom(room);
-	game.start()
+	//game.start()
 	console.log("init end")
 }
 </script>
