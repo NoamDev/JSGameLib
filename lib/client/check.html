@@ -7,8 +7,8 @@ var ctx=null
 function init()
 {
 	game = new JSG.Game(document.getElementById("game"),500,500);
-	game.load("circle.bmp")
-	circle = new JSG.Sprite(game.res["circle.bmp"]);
+	game.load("circle.png")
+	circle = new JSG.Sprite(game.res["circle.png"]);
 	ball = new JSG.Entity();
 	ball.sprite = circle;
 	ball.addEventListener("create",function(){this.move(3)})
