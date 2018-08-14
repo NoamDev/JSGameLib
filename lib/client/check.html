@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src=lib.js type=text/javascript></script>
 <script>
 var game=null;
 var ball=null;
 var circle=null;
 var ctx=null
-function init()
+function load()
+{
+	JSG.loader.load([
+		"circle.png"
+	]).then(setup);
+}
+function setup()
 {
 	game = new JSG.Game(document.getElementById("game"),500,500);
-	game.load("circle.png")
-	circle = new JSG.Sprite(game.res["circle.png"]);
+	circle = new JSG.Sprite(JSG.loader.res["circle.png"]);
 	ball = new JSG.Entity();
 	ball.sprite = circle;
 	ball.addEventListener("create",function(){this.move(3)})
 	var room = new JSG.Room();
 	room.place(ball, 10,10);
 	game.addRoom(room);
-	//game.start()
+	game.start()
 }
 </script>
-<script src=lib.js type=text/javascript></script>
 </head>
 <body>
 <div id="game"></div>
-<button onclick=game.start()></button>
 </body>
 </html>
