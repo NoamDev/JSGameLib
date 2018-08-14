@@ -6,7 +6,6 @@
 var game=null;
 var ball=null;
 var circle=null;
-var ctx=null
 function load()
 {
 	JSG.loader.load([
@@ -19,7 +18,8 @@ function setup()
 	circle = new JSG.Sprite(JSG.loader.res["circle.png"]);
 	ball = new JSG.Entity();
 	ball.sprite = circle;
-	ball.addEventListener("create",function(){this.move(0,15)})
+	ball.addEventListener("key-down-ArrowDown",function(){this.move(0,100)})
+	ball.addEventListener("room-border",function(){this.move(0,0)});
 	var room = new JSG.Room();
 	room.place(ball, 10,10);
 	game.addRoom(room);
