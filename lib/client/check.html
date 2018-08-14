@@ -19,7 +19,7 @@ function setup()
 	circle = new JSG.Sprite(JSG.loader.res["circle.png"]);
 	ball = new JSG.Entity();
 	ball.sprite = circle;
-	ball.addEventListener("create",function(){this.move(3)})
+	ball.addEventListener("create",function(){this.move(0,15)})
 	var room = new JSG.Room();
 	room.place(ball, 10,10);
 	game.addRoom(room);
