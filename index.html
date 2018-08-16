@@ -2,16 +2,12 @@
 <html>
 <head>
   <style>
-    html,body{
-    margin:0;
-    padding:0,
-    height:100%,
-    width:100% 
-    }
     #frame{ 
-    width:500px;
-    height:500px;
-    margin-left:50%; 
+    display: inline-block;
+    }
+    #codecontain {
+    display: inline-block;
+    width: 50%;
     }
   </style>
   <script>
@@ -20,7 +16,9 @@
     {
       var frameContainer=document.getElementById("frame");
       if(frame!=null)frameContainer.removeChild(frame);
-      var frame=document.createElement("iframe");
+      frame=document.createElement("iframe");
+      frame.style.height="500px"
+      frame.style.width="500px"
       frameContainer.appendChild(frame);
       var libscript=document.createElement("script");
       libscript.src="lib/client/lib.js";
@@ -28,9 +26,7 @@
       div.id="game";
       var script=document.createElement("script");
       script.innerHTML=document.getElementById("code").value;
-      frame.contentDocument.open();
-      frame.contentDocument.write("<!DOCTYPE html><html><head></head><body></body></html>");
-      frame.contentDocument.close()
+      frame.contentDocument.body.style.margin="0px"
       frame.contentDocument.body.appendChild(div);
       frame.contentDocument.head.appendChild(script);
       frame.contentDocument.head.appendChild(libscript);
@@ -38,14 +34,14 @@
   </script> 
 </head>
 <body>
-  <div style="width:50%;height:200px">
-  <textarea id="code" rows="50">
+  <div id="codecontain">
+  <textarea id="code" rows="30" cols="40">
   function init()
     {
     }
   </textarea>
   <button onclick=run()>run</button>
-  </div>
+    </div>
   <div style="height:220px" id="frame"></div>
 </body>
 </html>
