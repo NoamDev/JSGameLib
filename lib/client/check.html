@@ -9,22 +9,39 @@ var circle=null;
 function load()
 {
 	JSG.loader.load([
-		"mario.gif"
+		"mario.gif",
+		"wall.png"
 	]).then(setup);
 }
 function setup()
 {
 	game = new JSG.Game(document.getElementById("game"),500,500);
-	circle = new JSG.Sprite(JSG.loader.res["mario.gif"]);
+	mario = new JSG.Sprite(JSG.loader.res["mario.gif"]);
+	var rec = new JSG.Sprite(JSG.loader.res["wall.png"]);
+
 	ball = new JSG.Entity();
-	ball.sprite = circle;
+	var wall=new JSG.Entity();
+	wall.sprite=rec;
+	wall.solid=true;
+	ball.sprite = mario;
 	ball.addEventListener("key-down-ArrowDown",function(){this.move(0,50)})
     ball.addEventListener("key-down-ArrowUp",function(){this.move(0,-50)})
     ball.addEventListener("key-down-ArrowRight",function(){this.move(50,0)})
     ball.addEventListener("key-down-ArrowLeft",function(){this.move(-50,0)})
 	ball.addEventListener("intersect-border",function(){this.move(0,0);this.x=this.x_old;this.y=this.y_old});
+	ball.addEventListener("collision",function(){this.move(0,0)})
 	var room = new JSG.Room();
-	room.place(ball, 10,10);
+	room.place(ball, 250,250);
+	for(var x=0;x<500;x+=50)
+	{
+		room.place(wall, x,0);
+		room.place(wall, x,450);
+	}
+	for(var y=50;y<500;y+=50)
+	{
+		room.place(wall, 0,y);
+		room.place(wall, 450,y);
+	}
 	game.addRoom(room);
 	game.start()
 }
